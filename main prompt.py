@@ -1,18 +1,18 @@
 from selenium import webdriver
 import requests
 import shutil
-import argparse
+# import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-v", "--video", help="Specify the link is a video link",
-                    action="store_true")
-parser.add_argument("-i", "--image", help="Specify the link is an image link",
-                    action="store_true")
-parser.add_argument("-l", "--link", type=str,
-                    help="Link to image/video")
-parser.add_argument("-f", "--filename", type=str,
-                    help="Name of the file with extention")
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument("-v", "--video", help="Specify the link is a video link",
+#                     action="store_true")
+# parser.add_argument("-i", "--image", help="Specify the link is an image link",
+#                     action="store_true")
+# parser.add_argument("-l", "--link", type=str,
+#                     help="Link to image/video")
+# parser.add_argument("-f", "--filename", type=str,
+#                     help="Name of the file with extention")
+# args = parser.parse_args()
 
 # Change this value to point to you downloaded chromedriver
 CHROME_DRIVER_PATH = r'C:\Program Files\chromedriver\chromedriver.exe'
@@ -44,10 +44,17 @@ def downloadVideo(url, filename):
                 f.write(chunk)
 
 
-video, image, filename, link = args.video, args.image, args.filename, args.link
+# You can wrap this in a while loop to continously prompt the user.
+# video, image, filename, link = args.video, args.image, args.filename, args.link
+link = input("Input link to Instagram POST")
+image_or_video = input(
+    "Input v if the link points to a video and i if it's an image")
+filename = input("Write a name you wish to save the file as")
 
-if video:
+if image_or_video == 'v':
     downloadVideo(link, filename)
-elif image:
+elif image_or_video == 'i':
     downloadImage(link, filename)
+else:
+    print("WRONG INPUT")
 driver.close()
