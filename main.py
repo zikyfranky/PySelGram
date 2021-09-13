@@ -27,7 +27,7 @@ c_driver = os.path.join(dir_name, 'chromedriver\chromedriver')
 CHROME_DRIVER_PATH = c_driver
 
 options = webdriver.ChromeOptions()
-# options.add_argument("--headless")
+options.add_argument("--headless")
 driver = webdriver.Chrome(
     executable_path=CHROME_DRIVER_PATH, options=options)
 
