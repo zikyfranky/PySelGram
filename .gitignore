@@ -1,5 +1,11 @@
 *.jpg
 *.png
 *.mp4
+*.mp3
+*.wav
+*.ogg
 m_p.py
-chromedriver/chromedriver.exe
+*env
+chromedriver/chromedriver*
+msedgedriver/msedgedriver*
+.vscode
